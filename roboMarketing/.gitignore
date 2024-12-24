@@ -1,0 +1,45 @@
+# Python bytecode files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Distribution / packaging
+.Python
+*.egg-info/
+*.egg
+env/
+venv/
+ENV/
+myenv/
+
+# Virtual environment directories
+.venv/
+
+# IntelliJ IDEA project files
+.idea/
+
+# VS Code project files
+.vscode/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# macOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+# Pytest cache
+.cache/
+
+# Ignore the driverChrome directory and its contents
+roboMarketing/driverChrome/
+
+# Ignore the profile folder
+.roboMarketingprofile/
+
+# Ignore the virtual environment and __pycache__ directories in the roboMarketing folder
+.roboMarketing/myenv/
+.roboMarketing/__pycache__/
