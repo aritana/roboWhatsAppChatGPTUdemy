@@ -38,7 +38,7 @@ Thumbs.db
 roboMarketing/driverChrome/
 
 # Ignore the profile folder
-roboMarketingprofile/
+../roboMarketingprofile/
 
 # Ignore the virtual environment and __pycache__ directories in the roboMarketing folder
 roboMarketing/myenv/
