@@ -39,6 +39,7 @@ roboMarketing/driverChrome/
 
 # Ignore the profile folder
 ../roboMarketingprofile/
+profile/
 
 # Ignore the virtual environment and __pycache__ directories in the roboMarketing folder
 roboMarketing/myenv/
