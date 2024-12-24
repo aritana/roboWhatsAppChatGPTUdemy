@@ -36,6 +36,8 @@ Thumbs.db
 
 # Ignore the driverChrome directory and its contents
 roboMarketing/driverChrome/
+chrome-linux64/
+
 
 # Ignore the profile folder
 ../roboMarketingprofile/
