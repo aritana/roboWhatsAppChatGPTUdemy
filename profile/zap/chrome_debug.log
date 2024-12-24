@@ -1,9 +1,9 @@
-[16365:16365:1224/043651.839056:WARNING:chrome_main_delegate.cc(672)] This is Chrome version 131.0.6778.204 (not a warning)
-[16365:16365:1224/043651.944811:INFO:chrome_browser_cloud_management_controller.cc(196)] No machine level policy manager exists.
-[16411:16411:1224/043652.064725:WARNING:sandbox_linux.cc(430)] InitializeSandbox() called with multiple threads in process gpu-process.
-[16411:16411:1224/043652.065663:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
-[16365:16365:1224/043652.177554:ERROR:object_proxy.cc(576)] Failed to call method: org.freedesktop.ScreenSaver.GetActive: object_path= /org/freedesktop/ScreenSaver: org.freedesktop.DBus.Error.NotSupported: This method is not part of the idle inhibition specification: https://specifications.freedesktop.org/idle-inhibit-spec/latest/
-[16365:16365:1224/043652.567394:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'bluetooth'.", source:  (0)
-[16365:16365:1224/043652.643280:INFO:CONSOLE(155)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/yN/r/wUtQ-mgSfh4.js (155)
-[16413:16428:1224/043658.019833:WARNING:sqlite_persistent_store_backend_base.cc(198)] Failed to post task from FlushAndNotifyInBackground@net/extras/sqlite/sqlite_persistent_store_backend_base.cc:248 to client_task_runner_.
-[16413:16428:1224/043658.019906:WARNING:sqlite_persistent_store_backend_base.cc(198)] Failed to post task from FlushAndNotifyInBackground@net/extras/sqlite/sqlite_persistent_store_backend_base.cc:248 to client_task_runner_.
+[17386:17386:1224/044049.417159:WARNING:chrome_main_delegate.cc(672)] This is Chrome version 131.0.6778.204 (not a warning)
+[17386:17386:1224/044049.521812:INFO:chrome_browser_cloud_management_controller.cc(196)] No machine level policy manager exists.
+[17429:17429:1224/044049.646040:WARNING:sandbox_linux.cc(430)] InitializeSandbox() called with multiple threads in process gpu-process.
+[17429:17429:1224/044049.647778:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
+[17386:17386:1224/044049.760547:ERROR:object_proxy.cc(576)] Failed to call method: org.freedesktop.ScreenSaver.GetActive: object_path= /org/freedesktop/ScreenSaver: org.freedesktop.DBus.Error.NotSupported: This method is not part of the idle inhibition specification: https://specifications.freedesktop.org/idle-inhibit-spec/latest/
+[17386:17386:1224/044050.118103:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'bluetooth'.", source:  (0)
+[17386:17386:1224/044050.200031:INFO:CONSOLE(155)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/yN/r/wUtQ-mgSfh4.js (155)
+[17432:17443:1224/044053.590729:WARNING:sqlite_persistent_store_backend_base.cc(198)] Failed to post task from FlushAndNotifyInBackground@net/extras/sqlite/sqlite_persistent_store_backend_base.cc:248 to client_task_runner_.
+[17432:17443:1224/044053.590779:WARNING:sqlite_persistent_store_backend_base.cc(198)] Failed to post task from FlushAndNotifyInBackground@net/extras/sqlite/sqlite_persistent_store_backend_base.cc:248 to client_task_runner_.
