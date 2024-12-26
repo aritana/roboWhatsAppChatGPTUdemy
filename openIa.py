@@ -1,24 +1,26 @@
-import openai
+import os
+from openai import OpenAI
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv("config.env")
 
-# Configure sua chave da API
-openai.api_key = os.getenv("OPENAI_API_KEY")
-
-# Faça a solicitação de um completion
-response = openai.ChatCompletion.create(
-    model="gpt-4",
-    messages=[
-        {"role": "system", "content": "Você é um assistente útil."},
-        {"role": "user", "content": "Explique como usar o OpenAI API corretamente."}
-    ],
-    temperature=1,
-    max_tokens=2048,
-    top_p=1,
-    frequency_penalty=0,
-    presence_penalty=0
+client = OpenAI(
+    api_key=os.getenv("OPENAI_API_KEY"),
 )
 
-# Exibe a resposta gerada
-print(response["choices"][0]["message"]["content"])
+chat_completion = client.chat.completions.create(
+    messages=[
+        {
+            "role": "user",
+            "content": "Qual o nome do primeiro presidente do Brasil?",
+        }
+    ],
+    #model="gpt-4",
+    model="gpt-3.5-turbo"
+)
+
+# Acessando o conteúdo
+content = content = chat_completion.choices[0].message.content
+
+# Exibindo o conteúdo
+print(content)  # Isso exibirá "This is a test."
