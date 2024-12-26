@@ -46,3 +46,6 @@ profile/
 # Ignore the virtual environment and __pycache__ directories in the roboMarketing folder
 roboMarketing/myenv/
 roboMarketing/__pycache__/
+
+#configurations
+config.env
