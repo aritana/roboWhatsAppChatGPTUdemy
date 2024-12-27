@@ -8,8 +8,8 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import time
 import os 
 import signal
-import sys
-import json
+from openai import OpenAI
+from dotenv import load_dotenv
 
 
 # Definir o caminho do binário do Chrome
@@ -35,13 +35,50 @@ driver.implicitly_wait(10)
 
 #sair do loop
 def signal_handler(sig, frame):
-    print('Ctrl+C detectado. Saindo do loop...')
+    print('\nYou pressed Ctrl+C!')
+    print('Exiting gracefully...')
     driver.quit()
-    quit()
+    exit(0)
+
+
+def sends_message_to_user(message):
+    # Localize a div com contenteditable="true", role="textbox" e placeholder contendo "mensagem"
+    div_element = driver.find_element(
+        By.XPATH, '//div[contains(@aria-placeholder, "mensagem")]'
+    )
+
+    # Simular digitação para substituir o <br> por <span>
+    div_element.send_keys(message)
+    driver.implicitly_wait(0.5)        
+    div_element.send_keys(Keys.ENTER)    
+    return     
+
+def openAI(user_message):
+    load_dotenv("config.env")
+    client = OpenAI(
+        api_key=os.getenv("OPENAI_API_KEY"),
+    )
+
+    chat_completion = client.chat.completions.create(
+    messages=[
+        {
+            "role": "user",
+            "content": user_message
+        }
+    ],
+    #model="gpt-4",
+    model="gpt-3.5-turbo"
+    )
+    # Acessando o conteúdo
+    content = chat_completion.choices[0].message.content
+    # Exibindo o conteúdo
+    print(content)  # Isso exibirá "This is a test."
+    sends_message_to_user(content)
+    return
 
 #capturar Notificação
 def bot():
-    try:      
+    try: 
         elements = driver.find_elements(By.XPATH, "//*[contains(@aria-label, 'mensage') and contains(@aria-label, 'não lida')]")
 
         #elements = driver.find_elements(By.CLASS_NAME, "x7h3shv")      
@@ -61,22 +98,13 @@ def bot():
                 # Localizar o <span> filho com a classe vazia e pegar o texto
                 last_message_span = messages[-1].find_element(By.CSS_SELECTOR, "span[class='']")
                 last_message = last_message_span.text
-                new_message = "Cara, tudo bem?"
-                print("Última mensagem recebida:", last_message)          
-                            
-                # Localize a div com contenteditable="true", role="textbox" e placeholder contendo "mensagem"
-                div_element = driver.find_element(
-                    By.XPATH, '//div[contains(@aria-placeholder, "mensagem")]'
-                )
-
-                # Simular digitação para substituir o <br> por <span>
-                div_element.send_keys(new_message)
-                driver.implicitly_wait(0.5)        
-                div_element.send_keys(Keys.ENTER)      
+                print("Última mensagem recebida:", last_message)     
+                openAI(last_message)     
+                                            
+                # Aqui você pode processar a mensagem usando IA, responder, etc.
                 
-                return          
         else:
-            print("Nenhuma mensagem não lida encontrada.")
+            print("Nenhuma mensagem não lida encontrada.")          
         #Gets the new message
 
         #allMessages =  driver.find_elements()
@@ -86,7 +114,7 @@ def bot():
 
         #Answer the message and closes the contact    
     except:
-        print("buscando novas notificações")
+        print("buscando novas notificações")        
 
 # Registra o sinal de interrupção
 signal.signal(signal.SIGINT, signal_handler)
